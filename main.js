@@ -123,14 +123,18 @@ filtButton.addEventListener("click", () => {
     updateAll();
 });
 
+fileDiv.addEventListener("click", async () => {
+    const elm = create("input", null, null, {type: "file"});
+    elm.click();
+    await new Promise(r => elm.onchange = r);
+    if (elm.files.length === 0) return;
+    const fileReader = new FileReader();
+    fileReader.readAsText(elm.files[0]);
+    await new Promise(r => fileReader.onload = r);
+    createFromString(fileReader.result);
+});
+
 {
-    const p1 = new Property("importance");
-    const a = new Category("books");
-    const a1 = new Category("non-fiction"); a1.category = a;
-    const a2 = new Category("fiction"); a2.category = a;
-    const b = new Category("examples");
-    const b1 = new Wish("main example wish"); b1.category = b; b1.properties.importance = 1; b1.description = "<h1>Example</h1>This is an example description for an example wish. It is not intended to really describe something, rather to be a space-filler for seeing how this works. To test various elements, it contains a <a href='https://www.ecosia.org'>Link</a>, a <b>piece of bold text</b> and an image: <br> <img src='https://openclipart.org/download/20655/sheikh-tuhin-Christmas.svg' width='500px'></img> <br> There are also &lt;br&gt; elements before and after the image. I hope that everything works, so I can replace this long and boring text with an actual description of a real wish soon.";
-    const b2 = new Wish("other example wish"); b2.category = b; b2.properties.importance = 0; b2.description = "<h1>Another example</h1><h2>What this actually is</h2>This is another example description. It is supposed to be much shorter and less complex, since it is not really supposed to show anything. But I like to write texts like this and since I can, I'm doing it here. So I think this text will actually get longer and longer without contributing to finishing this program. Instead, writing it will just make me lose time. Additionally, it doesn't have any long-term (or even short-term) purpose, so I will have to delete it soon.";
     initAll();
     updateAll();
 }
@@ -265,9 +269,9 @@ function initFilt() {
     }
 }
 
-function create(name, parent, html = null, attributes = null) {
+function create(name, parent = null, html = null, attributes = null) {
     const elm = document.createElement(name);
-    parent.appendChild(elm);
+    if (parent !== null) parent.appendChild(elm);
     if (html !== null) elm.innerHTML = html;
     if (attributes !== null) {
         for (let i = 0; i < Object.keys(attributes).length; i++) {
@@ -334,5 +338,5 @@ function createFromString(string) {
     
     loc = Category.start;
     
-    showEverything();
+    updateAll();
 }
