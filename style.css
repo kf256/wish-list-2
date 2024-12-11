@@ -1,0 +1,212 @@
+#content {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#fullDiv {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 50%;
+    
+    display: flex;
+    
+    background-color: #287828;
+}
+
+#naviDiv {
+    position: relative;
+    width: 0px;
+    height: 100%;
+    transition: width 0.2s;
+    z-index: 1;
+}
+#naviButton {
+    position: absolute;
+    right: -40px;
+    top: 20px;
+    width: 25px;
+    padding: 10px;
+    
+    text-align: right;
+    font-size: 30px;
+    
+    border-radius: 0px 10px 10px 0px;
+    background-color: #DBE5AA;
+}
+#naviList {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: calc(100% - 20px);
+    overflow-x: hidden;
+    background-color: #DBE5AA;
+    border-radius: 0px 10px 10px 0px;
+}
+#naviList > * {
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+    background-color: #eef;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 2px 3px 5px -3px inset;
+}
+
+#mainDiv {
+    flex: 1;
+    height: 100%;
+
+    position: relative;
+}
+
+#topDiv {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+}
+
+#pathDiv {
+    background-color: #DBE5AA;
+    border-radius: 0px 0px 10px 10px;
+    z-index: 1;
+    
+    display: flex;
+    font-size: 20px;
+}
+#pathDiv > * {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#pathDiv > div {
+    box-shadow: 2px 3px 5px -3px inset;
+    background-color: #eef;
+}
+#pathDiv > span {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#listDiv {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
+    
+    font-size: 20px;
+}
+#listDiv > .category {
+    margin: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #FF6969;
+    font-size: 30px;
+    font-weight: bold;
+}
+#listDiv > .wish {
+    margin: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #69FFFE;
+    font-size: 20px;
+}
+#listDiv > .description {
+    margin: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ddd;
+    font-size: 20px;
+    max-height: calc(100% - 150px);
+    overflow: scroll;
+}
+
+#filtDiv {
+    position: relative;
+    width: 0px;
+    height: 100%;
+    transition: width 0.2s;
+}
+#filtButton {
+    position: absolute;
+    left: -40px;
+    top: 20px;
+    width: 25px;
+    padding: 10px;
+    
+    font-size: 30px;
+    
+    border-radius: 10px 0px 0px 10px;
+    background-color: #DBE5AA;
+}
+#filtList {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: calc(100% - 20px);
+    overflow-x: hidden;
+    background-color: #DBE5AA;
+    border-radius: 10px 0px 0px 10px;
+}
+#filtList > * {
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+    background-color: #8CB7FF;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px -3px inset;
+}
+#filtList .operator {
+    margin: 0px 5px;
+    padding: 0px 5px;
+    font-size: 30px;
+    border-radius: 5px;
+    background-color: #BC8EFF;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #AD6FA9;
+    outline: none;
+    margin-top: 5px;
+    height: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px -3px inset black;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 5px inset #2128B0;
+    background: transparent;
+}
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 5px inset #2128B0;
+    background: transparent;
+}
+
+#naviButton, #naviList, #filtButton, #filtList, #filtList .operator, #listDiv > *, #pathDiv {
+    box-shadow: 2px 3px 5px -3px black, -2px -3px 5px -3px inset black, 2px 3px 5px -3px inset #fffa;
+}
