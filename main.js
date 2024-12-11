@@ -338,5 +338,6 @@ function createFromString(string) {
     
     loc = Category.start;
     
+    initAll();
     updateAll();
 }
