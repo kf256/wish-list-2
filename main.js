@@ -140,7 +140,6 @@ fileDiv.addEventListener("click", async () => {
 }
 
 function initAll() {
-    initNavi();
     initFilt();
 }
 
@@ -205,9 +204,7 @@ function updatePath() {
 function updateNavi() {
     naviDiv.style.width = naviVisible ? "200px" : "0px";
     naviButton.innerHTML = naviVisible ? "⛌" : "☰";
-}
-
-function initNavi() {
+    
     naviList.innerHTML = "";
     list(Category.start, 0);
     
